@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class User {
 
-    private long UserId;
+    private String UserId;
     private String email;
     private String password;
-    private String role[]; // retorna list de usuarios?
+    private String role[];
 
 }
 
