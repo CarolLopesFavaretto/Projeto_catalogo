@@ -16,7 +16,6 @@ public class GsonOrganization {
 
         Gson gson = new Gson();
 
-
         try {
 
             File file = new ClassPathResource("organization.json").getFile();
