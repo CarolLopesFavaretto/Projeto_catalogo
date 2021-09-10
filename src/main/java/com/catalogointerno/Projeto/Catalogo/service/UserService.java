@@ -1,6 +1,5 @@
 package com.catalogointerno.Projeto.Catalogo.service;
 
-import com.catalogointerno.Projeto.Catalogo.Json.StaffOrganization;
 import com.catalogointerno.Projeto.Catalogo.Json.StaffUser;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -42,33 +41,6 @@ public class UserService implements UserDetailsService {
         }
 
         return null;
-    }
-
-    public Optional<StaffOrganization> validaNome (String name) {
-        Gson gson = new Gson();
-
-        try {
-
-            File file = new ClassPathResource("organization.json").getFile();
-
-            Reader reader = new FileReader(file);
-
-            List<StaffOrganization> staffOrganization = gson.fromJson(reader, new TypeToken<List<StaffOrganization>>() {
-            }.getType());
-
-
-            for (StaffOrganization org : staffOrganization) {
-                if (name.equals(org.getName())) {
-                    Optional<StaffOrganization> nome = Optional.of(org);
-                    return nome;
-                }
-            }
-
-            } catch(IOException e){
-                e.printStackTrace();
-            }
-            return null;
-
     }
 
 

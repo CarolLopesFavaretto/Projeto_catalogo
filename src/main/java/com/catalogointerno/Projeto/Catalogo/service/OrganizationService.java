@@ -1,8 +1,10 @@
-package com.catalogointerno.Projeto.Catalogo.Json;
+package com.catalogointerno.Projeto.Catalogo.service;
 
+import com.catalogointerno.Projeto.Catalogo.Json.StaffOrganization;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileReader;
@@ -11,10 +13,10 @@ import java.io.Reader;
 import java.util.List;
 import java.util.Optional;
 
-public class GsonOrganization {
+@Service
+public class OrganizationService {
 
-    public static void main(String[] args) {
-
+    public Optional<StaffOrganization> validaNome (String name) {
         Gson gson = new Gson();
 
         try {
@@ -23,19 +25,15 @@ public class GsonOrganization {
 
             Reader reader = new FileReader(file);
 
-            List<StaffOrganization> staffOrganization = gson.fromJson(reader, new TypeToken<List<StaffOrganization>>(){}.getType());
-
-            System.out.println(staffOrganization.toString());
-
+            List<StaffOrganization> staffOrganization = gson.fromJson(reader, new TypeToken<List<StaffOrganization>>() {
+            }.getType());
 
 
 
-        } catch (IOException e) {
+        } catch(IOException e){
             e.printStackTrace();
         }
-
-
+        return null;
 
     }
 }
-
