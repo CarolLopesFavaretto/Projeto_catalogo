@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "1a650648-7035-4ee4-9a5c-a304e2a287be",
+		"name": "Projeto-Catalogo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pesquisa Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzEyMzA0OTYsInVzZXJfbmFtZSI6Im1pZGRsZS5zYWxlc3JlcEBzdGl0LnRhbGVudCIsImF1dGhvcml0aWVzIjpbIlJPTEVfbWlkZGxlIl0sImp0aSI6IlZUb3FUYXlSY1ZVSk0wM3dKZ3hEWC16elpOSSIsImNsaWVudF9pZCI6Im15LWFwcCIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdfQ.PLbP6xyPtCH9Nm69xjd0RSRb1UiShs68OYAyUqYgv74",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/products/TesteOrg?tags=small,grande",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"TesteOrg"
+					],
+					"query": [
+						{
+							"key": "tags",
+							"value": "small,grande"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login/token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic bXktYXBwOkAzMjE="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "middle.salesrep@stit.talent",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "9fiD2NCGeLqjSSjhUP78kDS3ic2B93Wy",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
