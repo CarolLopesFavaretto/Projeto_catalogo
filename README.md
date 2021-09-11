@@ -2,7 +2,15 @@
 
 ### API de catalogo interno para consulta e busca de produtos por vendedores de acordo com a permissão de acesso.
 
-## Como executar o projeto:
+## Tecnologias Utilizadas
+
+### Java
+### Spring Boot
+### Maven
+### JWT
+
+
+# Como executar o projeto:
 
 #### Pré requisito - Java 11
 
