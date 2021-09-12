@@ -46,7 +46,8 @@ public class ProductController {
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toList());
 
-
         return productService.consultaProducts(organizationName, tags, authorities );
     }
+
+
 }
