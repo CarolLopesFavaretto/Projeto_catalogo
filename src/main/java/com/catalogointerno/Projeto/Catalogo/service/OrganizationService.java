@@ -1,50 +1,48 @@
 package com.catalogointerno.Projeto.Catalogo.service;
 
-import com.catalogointerno.Projeto.Catalogo.Json.StaffOrganization;
-import com.catalogointerno.Projeto.Catalogo.Json.StaffUser;
+import com.catalogointerno.Projeto.Catalogo.model.Organization;
+import com.catalogointerno.Projeto.Catalogo.model.Product;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
-public class OrganizationService implements UserDetailsService {
+public class OrganizationService {
 
-
-
-    public Optional<StaffOrganization> validaLevel (String level) {
+    public List<Organization> loadOrganization() {
         Gson gson = new Gson();
+        List<Organization> list = new ArrayList<>();
 
         try {
 
             File file = new ClassPathResource("organization.json").getFile();
-
             Reader reader = new FileReader(file);
-
-            List<StaffOrganization> staffOrganization = gson.fromJson(reader, new TypeToken<List<StaffOrganization>>() {
+            list = gson.fromJson(reader, new TypeToken<List<Organization>>() {
             }.getType());
 
 
-        } catch(IOException e){
+
+        } catch (
+                IOException e) {
             e.printStackTrace();
         }
-        return null;
-
+        return list;
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
 }
+
+
+
+
+
+
+
